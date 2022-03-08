@@ -93,6 +93,7 @@
             "zlib",
             "zsh",
             "tig",
+            "adr-tools",
             "gtk-vnc"
           ]
         state: present
@@ -183,3 +184,8 @@
       with_items:
         - generator-generator
         - yo
+
+    - name: Set git global config
+      shell: |
+        git config --global user.name sungyong
+        git config --global user.email sungyong@gmail.com
