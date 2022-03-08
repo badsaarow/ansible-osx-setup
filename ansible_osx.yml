@@ -48,6 +48,9 @@
         - visual-studio-code
         - vlc
         - zoom
+        - xquartz
+        - double-commander
+        - scroll-reverser
 
     - name: "Install homebrew packages"
       community.general.homebrew:
@@ -89,8 +92,6 @@
             "openssl",
             "gradle",
             "libssh2",
-            "xquartz",
-            "sshfs",
             "pkg-config",
             "postgresql",
             "rcm",
@@ -99,7 +100,6 @@
             "sqlite3",
             "tmux",
             "unixodbc",
-            "double-commander",
             "unzip",
             "vim",
             "watchman",
@@ -110,7 +110,6 @@
             "zplug",
             "tig",
             "adr-tools",
-            "scroll-reverser",
             "tailscale",
             "virt-viewer",
             "gtk-vnc"
