@@ -23,7 +23,7 @@ The easiest way to understand what's installed is to read the contents of `ansib
 - ZSH + Oh My Zsh as the primary shell
 - Homebrew for package management
 - ASDF for version management (along with plugins and default versions for ruby, python, javascript, elixir and erlang)
-- Virtualbox, Vagrant and Docker
+- Docker
 - VSCode + default plugins and configuration
 - A selection of Android SDK's
 - Lots of other tools and utilities
@@ -31,4 +31,34 @@ The easiest way to understand what's installed is to read the contents of `ansib
 ## Customising
 
 Everything can be customised by editing `ansible_osx.yml`.
+
+## Troubleshooting
+
+```shell
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+ERROR! The requirements file '/Users/sungyong/workspace/ansible-osx-setup/bin/requirements.yml' does not exist.
+ERROR! the playbook: ansible_osx.yml could not be found
+
+실행은 root에서 실행한다.  bin/bootsrap
+.ssh folder 는 사전 복사한다.
+
+```
+
+```
+TASK [Get the path to ZSH] *********************************************************************************************************************************************
+fatal: [localhost]: FAILED! => {"changed": false, "module_stderr": "objc[21949]: Class AMSupportURLConnectionDelegate is implemented in both /usr/lib/libamsupport.dylib (0x1dfc7b678) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x108d802c8). One of the two will be used. Which one is undefined.\nobjc[21949]: Class AMSupportURLSession is implemented in both /usr/lib/libamsupport.dylib (0x1dfc7b6c8) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x108d80318). One of the two will be used. Which one is undefined.\n\nYou have not agreed to the Xcode license agreements, please run 'sudo xcodebuild -license' from within a Terminal window to review and agree to the Xcode license agreements.\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 69}
+
+PLAY RECAP *************************************************************************************************************************************************************
+localhost                  : ok=17   changed=3    unreachable=0    failed=1    skipped=10   rescued=0    ignored=1  
+
+```
+
+```
+$ sudo xcodebuild -license accept
+objc[23973]: Class AMSupportURLConnectionDelegate is implemented in both /usr/lib/libamsupport.dylib (0x1dfc7b678) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x10a4242c8). One of the two will be used. Which one is undefined.
+objc[23973]: Class AMSupportURLSession is implemented in both /usr/lib/libamsupport.dylib (0x1dfc7b6c8) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x10a424318). One of the two will be used. Which one is undefined.
+
+```
+
+xcode 한번은 실행해줘야 한다.
 

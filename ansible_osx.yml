@@ -9,20 +9,21 @@
       ansible.builtin.lineinfile:
         path: /etc/paths
         state: present
-        line: '/opt/homebrew/bin'
+        line: "/opt/homebrew/bin"
       become: true
       become_user: root
 
-    - name: 'add custom homebrew repos'
+    - name: "add custom homebrew repos"
       community.general.homebrew_tap:
-        name: [
-          adoptopenjdk/openjdk,
-          fishtown-analytics/dbt,
-          heroku/brew,
-          homebrew/cask-versions,
-          thoughtbot/formulae,
-          weaveworks/tap,
-        ]
+        name:
+          [
+            adoptopenjdk/openjdk,
+            fishtown-analytics/dbt,
+            heroku/brew,
+            homebrew/cask-versions,
+            thoughtbot/formulae,
+            weaveworks/tap,
+          ]
 
     - name: Install core packages via brew casks
       community.general.homebrew_cask:
@@ -34,64 +35,66 @@
         - android-studio
         - datagrip
         - docker
-        - dropbox
         - figma
         - google-chrome
-        - google-cloud-sdk
+        - microsoft-edge
+        - microsoft-remote-desktop
+        - obsidian
         - iterm2
-        - kindle
-        - ngrok
         - slack
         - sublime-text
-        - telegram
+        - telegram-desktop
         - visual-studio-code
         - vlc
         - zoom
-        - tuple
 
     - name: "Install homebrew packages"
       community.general.homebrew:
-        name: [
-          'autoconf',
-          'automake',
-          'aws-iam-authenticator',
-          'awscli',
-          'bfg',
-          'coreutils',
-          'curl',
-          'dbt@0.18.0',
-          'direnv',
-          'dnsmasq',
-          'fzf',
-          'gnu-time',
-          'gpg',
-          'heroku',
-          'htop',
-          'imagemagick@6',
-          'kubectx',
-          'kubernetes-cli',
-          'kubernetes-helm',
-          'libtool',
-          'libxslt',
-          'libyaml',
-          'mas',
-          'openssl' ,
-          'pkg-config',
-          'postgresql',
-          'rcm',
-          'readline',
-          'redis',
-          'sqlite3',
-          'tmux',
-          'unixodbc',
-          'unzip',
-          'vim',
-          'watchman',
-          'xz',
-          'yarn',
-          'zlib',
-          'zsh',
-        ]
+        name:
+          [
+            "autoconf",
+            "automake",
+            "awscli",
+            "bfg",
+            "coreutils",
+            "curl",
+            "wget",
+            "direnv",
+            "dnsmasq",
+            "asdf",
+            "fzf",
+            "gnu-time",
+            "gpg",
+            "heroku",
+            "htop",
+            "gtop",
+            "fd",
+            "kubectx",
+            "kubernetes-cli",
+            "kubernetes-helm",
+            "libtool",
+            "libxslt",
+            "libyaml",
+            "mas",
+            "openssl",
+            "pkg-config",
+            "postgresql",
+            "rcm",
+            "readline",
+            "redis",
+            "sqlite3",
+            "tmux",
+            "unixodbc",
+            "unzip",
+            "vim",
+            "watchman",
+            "xz",
+            "yarn",
+            "zlib",
+            "zsh",
+            "tig",
+            "gtk-vnc"
+          ]
         state: present
         update_homebrew: yes
 
@@ -126,45 +129,6 @@
         dest: /Users/{{ lookup('env', 'USER') }}/.zshrc
         owner: "{{ lookup('env', 'USER') }}"
         force: yes
-
-    - name: Create a default VSCode configuration
-      template:
-        src: templates/vscode-settings.json.j2
-        dest: /Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code/User/settings.json
-        owner: "{{ lookup('env', 'USER') }}"
-        force: yes
-
-    - name: Create a default VSCode keuybinding configuration
-      template:
-        src: templates/vscode-keybindings.json.j2
-        dest: /Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code/User/keybindings.json
-        owner: "{{ lookup('env', 'USER') }}"
-        force: yes
-
-    # Add something which ensures path is set here
-    - name: Install VSCode extensions
-      shell: code --install-extension {{ item }}
-      with_items:
-        - apollographql.vscode-apollo
-        - bradlc.vscode-tailwindcss
-        - castwide.solargraph
-        - clinyong.vscode-css-modules
-        - eamodio.gitlens
-        - jakebecker.elixir-ls
-        - kaiwood.endwise
-        - karunamurti.haml
-        - ms-vscode-remote.vscode-remote-extensionpack
-        - ms-vscode.vscode-typescript-tslint-plugin
-        - msjsdiag.debugger-for-chrome
-        - rebornix.ruby
-        - richie5um2.vscode-sort-json
-        - Tyriar.sort-lines
-        - vscodevim.vim
-        - wholroyd.jinja
-        - wingrunr21.vscode-ruby
-        - xabikos.javascriptsnippets
-        - streetsidesoftware.code-spell-checker
-        - fabiospampinato.vscode-todo-plus
 
     - git:
         repo: https://github.com/asdf-vm/asdf.git
@@ -214,30 +178,8 @@
         asdf install nodejs 16.4.2
         asdf global nodejs 16.4.2
 
-    - name: "Install default erlang"
-      shell: |
-        source /Users/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
-        asdf install erlang 24.0.2
-        asdf global  erlang 24.0.2
-
-
-    - name: "Install default elixir"
-      shell: |
-        source /Users/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
-        asdf install elixir 1.12.3-otp-24
-        asdf global elixir 1.12.3-otp-24
-        mix local.hex --force
-
     - name: Install yarn packages
       shell: yarn global add {{ item }}
       with_items:
-        - react-native-cli
-        - create-react-app
-        - apollo
         - generator-generator
         - yo
-        
-    - name: re-generate bins now we've installed some yarn packages
-      shell: asdf reshim nodejs
-        
-
