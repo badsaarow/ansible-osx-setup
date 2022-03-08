@@ -23,6 +23,7 @@
             homebrew/cask-versions,
             thoughtbot/formulae,
             weaveworks/tap,
+            jeffreywildman/homebrew-virt-manager
           ]
 
     - name: Install core packages via brew casks
@@ -69,6 +70,15 @@
             "htop",
             "gtop",
             "fd",
+            "miller",
+            "exa",
+            "asciinema",
+            "chezmoi",
+            "lnav",
+            "magic-wormhole",
+            "ffsend",
+            "up",
+            "navi",
             "kubectx",
             "kubernetes-cli",
             "kubernetes-helm",
@@ -77,6 +87,10 @@
             "libyaml",
             "mas",
             "openssl",
+            "gradle",
+            "libssh2",
+            "xquartz",
+            "sshfs",
             "pkg-config",
             "postgresql",
             "rcm",
@@ -85,6 +99,7 @@
             "sqlite3",
             "tmux",
             "unixodbc",
+            "double-commander",
             "unzip",
             "vim",
             "watchman",
@@ -92,8 +107,12 @@
             "yarn",
             "zlib",
             "zsh",
+            "zplug",
             "tig",
             "adr-tools",
+            "scroll-reverser",
+            "tailscale",
+            "virt-viewer",
             "gtk-vnc"
           ]
         state: present
@@ -119,6 +138,18 @@
       shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
       args:
         creates: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh"
+
+    - git:
+        repo: https://github.com/romkatv/powerlevel10k.git
+        dest: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom}/themes/powerlevel10k"
+
+    - git:
+        repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+        dest: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom}/themes/zsh-syntax-highlighting"
+
+    - git:
+        repo: https://github.com/zsh-users/zsh-autosuggestions.git
+        dest: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom}/themes/zsh-autosuggestions"
 
     - name: Set ZSH as the default shell
       shell: chsh -s $(which zsh) {{ lookup('env', 'USER') }}

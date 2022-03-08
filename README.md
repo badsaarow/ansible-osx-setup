@@ -24,13 +24,25 @@ The easiest way to understand what's installed is to read the contents of `ansib
 - Homebrew for package management
 - ASDF for version management (along with plugins and default versions for ruby, python, javascript, elixir and erlang)
 - Docker
-- VSCode + default plugins and configuration
+- VSCode
 - A selection of Android SDK's
 - Lots of other tools and utilities
 
-## Customising
+## Customizing
 
-Everything can be customised by editing `ansible_osx.yml`.
+Everything can be customized by editing `ansible_osx.yml`.
+
+## Next
+
+- .ssh clone
+- display: scale to many characters
+- dock: smaller size
+- touche pad: touch to click
+- accessiblity: touchpad 3 finger to drag
+- reverse-scroller: set oposite to touchpad and mouse wheel
+- 스크린샷 -> clipboard: shift + control + cmd + 4
+- 크롬 page reload: cmd + R
+
 
 ## Troubleshooting
 
