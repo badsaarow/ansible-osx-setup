@@ -140,15 +140,15 @@
 
     - git:
         repo: https://github.com/romkatv/powerlevel10k.git
-        dest: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom}/themes/powerlevel10k"
+        dest: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom/themes/powerlevel10k"
 
     - git:
         repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
-        dest: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom}/themes/zsh-syntax-highlighting"
+        dest: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
     - git:
         repo: https://github.com/zsh-users/zsh-autosuggestions.git
-        dest: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom}/themes/zsh-autosuggestions"
+        dest: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 
     - name: Set ZSH as the default shell
       shell: chsh -s $(which zsh) {{ lookup('env', 'USER') }}
@@ -161,6 +161,20 @@
         owner: "{{ lookup('env', 'USER') }}"
         force: yes
 
+    - name: "Create a default ZSH profile"
+      template:
+        src: templates/.zprofile.j2
+        dest: /Users/{{ lookup('env', 'USER') }}/.zprofile
+        owner: "{{ lookup('env', 'USER') }}"
+        force: yes
+
+          #    - name: "Create a default p10k.zsh"
+          #template:
+          #src: templates/.p10k.zsh.j2
+          #dest: /Users/{{ lookup('env', 'USER') }}/.p10k.zsh
+          #owner: "{{ lookup('env', 'USER') }}"
+          #force: yes
+          
     - git:
         repo: https://github.com/asdf-vm/asdf.git
         dest: "/Users/{{ lookup('env', 'USER') }}/.asdf"
