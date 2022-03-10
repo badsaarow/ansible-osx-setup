@@ -13,4 +13,4 @@ cd ansible-osx-setup || exit
 ansible-galaxy install -r requirements.yml
 
 sudo apt -y upgrade
-sudo apt reboot
+sudo reboot

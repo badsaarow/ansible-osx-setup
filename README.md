@@ -32,6 +32,20 @@ The easiest way to understand what's installed is to read the contents of `ansib
 
 Everything can be customized by editing `ansible_osx.yml`.
 
+## Proxmox
+
+```shell
+curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/proxmox_1st.sh | bash
+curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/proxmox_2nd_user.sh | bash
+```
+
+## Ubuntu
+
+```shell
+curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_1st.sh | bash
+curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_2nd_user.sh | bash
+```
+
 ## Next
 
 - .ssh clone
