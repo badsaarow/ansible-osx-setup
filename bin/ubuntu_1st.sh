@@ -11,6 +11,6 @@ git clone https://github.com/badsaarow/ansible-osx-setup.git
 cd ansible-osx-setup || exit
 
 ansible-galaxy install -r requirements.yml
-
 sudo apt -y upgrade
+curl -fsSL https://tailscale.com/install.sh | sh
 sudo reboot

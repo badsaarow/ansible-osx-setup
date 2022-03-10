@@ -10,4 +10,5 @@ cd ansible-osx-setup || exit
 
 ansible-galaxy install -r requirements.yml
 pveam update
+curl -fsSL https://tailscale.com/install.sh | sh
 reboot
