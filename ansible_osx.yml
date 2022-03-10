@@ -121,6 +121,7 @@
       shell: mas install {{ item }}
       with_items:
         - 497799835 # xcode
+        # - 1475387142 # tailscale
 
     - name: Get the path to ZSH
       become: false
