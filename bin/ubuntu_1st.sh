@@ -7,7 +7,10 @@ sudo apt -y update
 sudo apt -y install docker-ce docker-ce-cli containerd.io python-is-python3 pip docker-compose
 sudo pip install --ignore-installed ansible
 
-git clone git@github.com:badsaarow/ansible-osx-setup.git
+git clone https://github.com/badsaarow/ansible-osx-setup.git
 cd ansible-osx-setup || exit
 
 ansible-galaxy install -r requirements.yml
+
+sudo apt -y upgrade
+sudo apt reboot
