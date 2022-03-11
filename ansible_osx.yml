@@ -112,6 +112,7 @@
             "adr-tools",
             "tailscale",
             "virt-viewer",
+            "telnet",
             "gtk-vnc"
           ]
         state: present
@@ -175,7 +176,7 @@
           #dest: /Users/{{ lookup('env', 'USER') }}/.p10k.zsh
           #owner: "{{ lookup('env', 'USER') }}"
           #force: yes
-          
+
     - git:
         repo: https://github.com/asdf-vm/asdf.git
         dest: "/Users/{{ lookup('env', 'USER') }}/.asdf"
