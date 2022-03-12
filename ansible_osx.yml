@@ -118,11 +118,15 @@
         state: present
         update_homebrew: yes
 
+    - name: "Modern Unix tools"
+      shell: brew install curlie httpie procs cheat dog mcfly ripgrep fd broot duf dust delta exa bat
+
     - name: "Install from Mac app store"
       shell: mas install {{ item }}
       with_items:
         - 497799835 # xcode
         # - 1475387142 # tailscale
+        - 76895641 # spark
 
     - name: Get the path to ZSH
       become: false
