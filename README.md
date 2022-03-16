@@ -55,8 +55,11 @@ curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bi
 - accessiblity: touchpad 3 finger to drag
 - reverse-scroller: set oposite to touchpad and mouse wheel
 - 스크린샷 -> clipboard: shift + control + cmd + 4
+- mcfly: ctrl + r : terminal에서 history
 - 크롬 page reload: cmd + R
-
+- install fig (terminal autocomplete addon): <https://fig.io/>
+- install Alfred app: <https://www.alfredapp.com/>
+  - Alfred is an award-winning app for macOS which boosts your efficiency with hotkeys, keywords, text expansion and more. Search your Mac and the web, and be more productive with custom actions to control your Mac.
 
 ## Troubleshooting
 
@@ -89,4 +92,4 @@ objc[23973]: Class AMSupportURLSession is implemented in both /usr/lib/libamsupp
 xcode 한번은 실행해줘야 한다.
 
 tailscale: 1475387142
-https://apps.apple.com/kr/app/tailscale/id1475387142?l=en&mt=12
+https://apps.apple.com/kr/app/tailscale/id1475387142?l=en&mt=12 
