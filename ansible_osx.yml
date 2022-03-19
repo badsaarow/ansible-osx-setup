@@ -33,7 +33,7 @@
       with_items:
         - 1password
         - android-sdk
-        - android-studio
+        # - android-studio
         - datagrip
         - docker
         - figma
@@ -43,7 +43,7 @@
         - obsidian
         - iterm2
         - slack
-        - sublime-text
+        # - sublime-text
         - telegram-desktop
         - visual-studio-code
         - vlc
@@ -58,7 +58,7 @@
           [
             "autoconf",
             "automake",
-            "awscli",
+            # "awscli",
             "bfg",
             "coreutils",
             "curl",
@@ -69,7 +69,7 @@
             "fzf",
             "gnu-time",
             "gpg",
-            "heroku",
+            # "heroku",
             "htop",
             "gtop",
             "fd",
@@ -96,7 +96,7 @@
             "postgresql",
             "rcm",
             "readline",
-            "redis",
+            # "redis",
             "sqlite3",
             "tmux",
             "unixodbc",
@@ -218,9 +218,10 @@
         asdf install ruby 3.0.2
         asdf global ruby 3.0.2
         gem install bundler
-        gem install cocoapods
-        gem install rubocop
-        gem install solargraph
+
+        # gem install cocoapods
+        # gem install rubocop
+        # gem install solargraph
 
     - name: "Install default node"
       shell: |
