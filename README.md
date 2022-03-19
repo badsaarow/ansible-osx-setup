@@ -16,17 +16,17 @@ For future updates, `bin/apply` can be used to run just the Ansible playbook wit
 
 It's important to note that this isn't designed to be particularly robust, particularly when it comes to required env vars, it may be required to run this. Then close the terminal and open it again and re-run and then repeat this process a few times.
 
-## What's installed
+## Mac Intel
 
-The easiest way to understand what's installed is to read the contents of `ansible_osx.yml`, this configuration is fairly specific to the range of development I do personally, but may serve as a useful starting point for others. The core components are:
+```
+mkdir -p ~/workspace/github/badsaarow
+cd  ~/workspace/github/badsaarow
+git clone https://github.com/badsaarow/ansible-osx-setup.git
+cd ansible-oax-setup
+# curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/bootstrap | zsh
+./bin/bootstrap
 
-- ZSH + Oh My Zsh as the primary shell
-- Homebrew for package management
-- ASDF for version management (along with plugins and default versions for ruby, python, javascript, elixir and erlang)
-- Docker
-- VSCode
-- A selection of Android SDK's
-- Lots of other tools and utilities
+```
 
 ## Customizing
 
