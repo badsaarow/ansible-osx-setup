@@ -1,0 +1,194 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Install homebrew
+      include_role:
+        name: geerlingguy.mac.homebrew
+
+    - name: Make sure homebrew bin is in path
+      ansible.builtin.lineinfile:
+        path: /etc/paths
+        state: present
+        line: "/opt/homebrew/bin"
+      become: true
+      become_user: root
+
+    - name: "add custom homebrew repos"
+      community.general.homebrew_tap:
+        name:
+          [
+            adoptopenjdk/openjdk,
+            fishtown-analytics/dbt,
+            homebrew/cask-versions,
+            thoughtbot/formulae,
+            jeffreywildman/homebrew-virt-manager
+          ]
+
+    - name: Install core packages via brew casks
+      community.general.homebrew_cask:
+        name: "{{ item }}"
+      ignore_errors: yes
+      with_items:
+        - android-sdk
+        - docker
+        - google-chrome
+        - visual-studio-code
+        - xquartz
+
+    - name: "Install homebrew packages"
+      community.general.homebrew:
+        name:
+          [
+            "autoconf",
+            "automake",
+            "bfg",
+            "coreutils",
+            "curl",
+            "wget",
+            "direnv",
+            "dnsmasq",
+            "asdf",
+            "fzf",
+            "gnu-time",
+            "gpg",
+            "htop",
+            "gtop",
+            "fd",
+            "miller",
+            "exa",
+            "asciinema",
+            "chezmoi",
+            "lnav",
+            "magic-wormhole",
+            "ffsend",
+            "up",
+            "navi",
+            "kubectx",
+            "kubernetes-cli",
+            "kubernetes-helm",
+            "libtool",
+            "libxslt",
+            "libyaml",
+            "openssl",
+            "gradle",
+            "rcm",
+            "readline",
+            "tmux",
+            "unixodbc",
+            "unzip",
+            "vim",
+            "watchman",
+            "xz",
+            "yarn",
+            "zlib",
+            "zsh",
+            "zplug",
+            "tig",
+            "adr-tools",
+            "virt-viewer",
+            "telnet",
+            "gtk-vnc"
+          ]
+        state: present
+        update_homebrew: yes
+
+    - name: "Modern Unix tools"
+      shell: brew install curlie httpie procs cheat dog mcfly ripgrep fd broot duf dust delta exa bat
+
+    - name: Get the path to ZSH
+      become: false
+      local_action: command which zsh
+      register: zsh_path
+
+    - name: "Ensure homebrew zsh is in allowed shells"
+      lineinfile:
+        path: /etc/shells
+        line: "{{ zsh_path.stdout }}"
+      become: true
+
+    - name: Install Oh My ZSH
+      shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+      args:
+        creates: "/home/{{ lookup('env', 'USER') }}/.oh-my-zsh"
+
+    - git:
+        repo: https://github.com/romkatv/powerlevel10k.git
+        dest: "/home/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom/themes/powerlevel10k"
+
+    - git:
+        repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+        dest: "/home/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+
+    - git:
+        repo: https://github.com/zsh-users/zsh-autosuggestions.git
+        dest: "/home/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+
+    - name: Set ZSH as the default shell
+      shell: chsh -s $(which zsh) {{ lookup('env', 'USER') }}
+      become: true
+
+    - name: "Create a default ZSH configuration"
+      template:
+        src: templates/.zshrc.j2
+        dest: /home/{{ lookup('env', 'USER') }}/.zshrc
+        owner: "{{ lookup('env', 'USER') }}"
+        force: yes
+
+    - name: "Create a default ZSH profile"
+      template:
+        src: templates/.zprofile.j2
+        dest: /home/{{ lookup('env', 'USER') }}/.zprofile
+        owner: "{{ lookup('env', 'USER') }}"
+        force: yes
+
+          #    - name: "Create a default p10k.zsh"
+          #template:
+          #src: templates/.p10k.zsh.j2
+          #dest: /home/{{ lookup('env', 'USER') }}/.p10k.zsh
+          #owner: "{{ lookup('env', 'USER') }}"
+          #force: yes
+
+    - git:
+        repo: https://github.com/asdf-vm/asdf.git
+        dest: "/home/{{ lookup('env', 'USER') }}/.asdf"
+        version: v0.8.1
+
+    - name: "Create a default asdf configuration"
+      template:
+        src: templates/.asdfrc.j2
+        dest: /home/{{ lookup('env', 'USER') }}/.asdfrc
+        owner: "{{ lookup('env', 'USER') }}"
+        force: yes
+
+    - name: "Install asdf plugins"
+      shell: |
+        source /home/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
+        asdf plugin-add {{ item }} || exit 0
+      with_items:
+        - ruby
+        - elixir
+        - nodejs
+        - python
+        - erlang
+
+    - name: "Install Default Python"
+      shell: |
+        source /home/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
+        asdf install python 3.10.0
+        asdf global python 3.10.0
+        pip3 install ansible
+        asdf reshim python
+
+    - name: "Install default node"
+      shell: |
+        source /home/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
+        bash /home/{{ lookup('env', 'USER') }}/.asdf/plugins/nodejs/bin/import-release-team-keyring
+        asdf install nodejs 16.4.2
+        asdf global nodejs 16.4.2
+
+    - name: Install yarn packages
+      shell: yarn global add {{ item }}
+      with_items:
+        - generator-generator
+        - yo
+
