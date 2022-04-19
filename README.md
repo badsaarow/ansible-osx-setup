@@ -92,4 +92,15 @@ objc[23973]: Class AMSupportURLSession is implemented in both /usr/lib/libamsupp
 xcode 한번은 실행해줘야 한다.
 
 tailscale: 1475387142
-https://apps.apple.com/kr/app/tailscale/id1475387142?l=en&mt=12 
+https://apps.apple.com/kr/app/tailscale/id1475387142?l=en&mt=12
+
+## Zorin OS
+
+```shell
+curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_1st.sh | bash
+```
+
+```shell
+cd ansible-oax-setup
+ansible-playbook -i "localhost," -c local ansible_zorin.yml --ask-become-pass
+```
