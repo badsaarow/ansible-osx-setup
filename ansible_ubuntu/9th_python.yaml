@@ -1,0 +1,9 @@
+---
+- name: Install python Dev Environment
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+     - name: Install python
+       command: "apt -y install python-is-python3 pip"
+

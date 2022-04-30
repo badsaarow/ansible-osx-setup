@@ -1,0 +1,9 @@
+---
+- name: Set brew environment
+  hosts: all
+  tasks:
+     - name: Add brew Path
+       shell: "echo 'eval \"$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)\"' >> ~/.zprofile"
+     - name: Init brew shellenv
+       shell: "eval \"$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)\";brew install gcc docker-compose python golang adr-tools tig nodejs yarn"
+

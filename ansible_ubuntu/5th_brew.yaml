@@ -1,0 +1,20 @@
+---
+- name: install brew
+  hosts: all
+  #    become: yes
+  #    become_method: sudo  
+  tasks:
+     - name: Install brew
+       command: "git clone https://github.com/Homebrew/brew homebrew"
+       ignore_errors: yes
+    # 아래 shell에서 sudo 변환을 하기 때문에 shell에서 직접 해야 함
+    # ➜  ~ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+    # echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/sungyong/.zprofile
+    # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    #  - name: Brew sudo update
+    #    shell: "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+    #  - name: Brew Update
+    #    shell: "eval \"$(homebrew/bin/brew shellenv)\"; brew update --force --quiet; chmod -R go-w \"$(brew --prefix)/share/zsh\""
+
+
+
