@@ -18,7 +18,7 @@ It's important to note that this isn't designed to be particularly robust, parti
 
 ## Mac Intel
 
-```
+```shell
 mkdir -p ~/workspace/github/badsaarow
 cd  ~/workspace/github/badsaarow
 git clone https://github.com/badsaarow/ansible-osx-setup.git
@@ -44,6 +44,7 @@ curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bi
 ```shell
 curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_1st.sh | bash
 curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_2nd_user.sh | bash
+curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_3rd_cli.sh | bash
 ```
 
 ## Next
@@ -73,7 +74,7 @@ ERROR! the playbook: ansible_osx.yml could not be found
 
 ```
 
-```
+```shell
 TASK [Get the path to ZSH] *********************************************************************************************************************************************
 fatal: [localhost]: FAILED! => {"changed": false, "module_stderr": "objc[21949]: Class AMSupportURLConnectionDelegate is implemented in both /usr/lib/libamsupport.dylib (0x1dfc7b678) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x108d802c8). One of the two will be used. Which one is undefined.\nobjc[21949]: Class AMSupportURLSession is implemented in both /usr/lib/libamsupport.dylib (0x1dfc7b6c8) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x108d80318). One of the two will be used. Which one is undefined.\n\nYou have not agreed to the Xcode license agreements, please run 'sudo xcodebuild -license' from within a Terminal window to review and agree to the Xcode license agreements.\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 69}
 
@@ -82,7 +83,7 @@ localhost                  : ok=17   changed=3    unreachable=0    failed=1    s
 
 ```
 
-```
+```shell
 $ sudo xcodebuild -license accept
 objc[23973]: Class AMSupportURLConnectionDelegate is implemented in both /usr/lib/libamsupport.dylib (0x1dfc7b678) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x10a4242c8). One of the two will be used. Which one is undefined.
 objc[23973]: Class AMSupportURLSession is implemented in both /usr/lib/libamsupport.dylib (0x1dfc7b6c8) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x10a424318). One of the two will be used. Which one is undefined.
@@ -92,7 +93,7 @@ objc[23973]: Class AMSupportURLSession is implemented in both /usr/lib/libamsupp
 xcode 한번은 실행해줘야 한다.
 
 tailscale: 1475387142
-https://apps.apple.com/kr/app/tailscale/id1475387142?l=en&mt=12
+<https://apps.apple.com/kr/app/tailscale/id1475387142?l=en&mt=12>
 
 ## Zorin OS
 
