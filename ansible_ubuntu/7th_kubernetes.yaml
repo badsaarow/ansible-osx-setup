@@ -1,9 +1,0 @@
----
-- name: Install Kind for Kubernetes
-  hosts: all
-  tasks:
-     - name: Install Kind & tools
-       shell: "eval \"$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)\";brew install kind kubernetes-cli helm"
-    #  - name: Initialize Kubernetes
-    #    shell: "eval \"$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)\";kind create cluster; docker exec -it kind-control-plane crictl images"
-

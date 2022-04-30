@@ -1,7 +1,0 @@
----
-- name: Install NodeJS Dev Envrionment
-  hosts: all
-  tasks:
-     - name: Install nodejs
-       shell: "eval \"$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)\";brew install nodejs yarn mosquitto"
-
