@@ -105,3 +105,9 @@ curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bi
 cd ansible-oax-setup
 ansible-playbook -i "localhost," -c local ansible_zorin.yml --ask-become-pass
 ```
+
+## Ubuntu ISO
+
+```shell
+https://releases.ubuntu.com/22.04/ubuntu-22.04-live-server-amd64.iso
+```
