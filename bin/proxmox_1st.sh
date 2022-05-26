@@ -14,4 +14,5 @@ echo "\n" > /etc/apt/source3s.list.d/pve-enterprise.list
 pveam update
 pveam available
 curl -fsSL https://tailscale.com/install.sh | sh
+curl -s https://install.zerotier.com | sh
 reboot

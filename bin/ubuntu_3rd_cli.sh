@@ -6,7 +6,8 @@ ansible-playbook -i "localhost," -c local 4th_zsh.yaml --ask-become-pass
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.zprofile
 source ~/.zprofile
-brew install gcc docker-compose python golang adr-tools tig nodejs yarn kind kubernetes-cli helm
+brew install gcc docker-compose python golang adr-tools tig nodejs yarn
+# kind kubernetes-cli helm
 brew update --force --quiet
 
 ansible-playbook -i "localhost," -c local 9th_python.yaml --ask-become-pass
