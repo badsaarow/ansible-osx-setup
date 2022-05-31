@@ -16,9 +16,12 @@ For future updates, `bin/apply` can be used to run just the Ansible playbook wit
 
 It's important to note that this isn't designed to be particularly robust, particularly when it comes to required env vars, it may be required to run this. Then close the terminal and open it again and re-run and then repeat this process a few times.
 
+Install the xcode app before start.
+
 ## Mac Intel
 
 ```shell
+sudo rm -rf /Library/Developer/CommandLineTools
 mkdir -p ~/workspace/github/badsaarow
 cd  ~/workspace/github/badsaarow
 git clone https://github.com/badsaarow/ansible-osx-setup.git
