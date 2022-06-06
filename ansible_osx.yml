@@ -115,15 +115,11 @@
             "telnet",
             "most",
             "bpytop",
-            "duf",
             "jq",
             "yq",
             "gtop",
             "tldr",
             "fx",
-            "bat",
-            "duf",
-            "dust",
             "gtk-vnc"
           ]
         state: present
@@ -131,6 +127,9 @@
 
     - name: "Modern Unix tools"
       shell: brew install curlie httpie procs cheat dog mcfly ripgrep fd broot duf dust delta exa bat
+
+    - name: "Android tools"
+      shell: brew install jadx
 
     - name: "Install from Mac app store"
       shell: mas install {{ item }}
