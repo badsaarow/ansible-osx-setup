@@ -126,7 +126,13 @@
         update_homebrew: yes
 
     - name: "Modern Unix tools"
-      shell: brew install curlie httpie procs cheat dog mcfly ripgrep fd broot duf dust delta exa bat
+      shell: brew install curlie httpie procs cheat dog mcfly ripgrep fd broot duf dust delta exa bat zoxide ripgrep 
+
+    - name: "pretty ping"
+      shell: |
+             wget https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping
+             chmod +x prettyping
+             mv prettyping ~/bin/
 
     - name: "Android tools"
       shell: brew install jadx
