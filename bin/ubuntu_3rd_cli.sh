@@ -12,6 +12,8 @@ brew install curlie httpie procs cheat dog mcfly ripgrep fd broot duf dust delta
 # kind kubernetes-cli helm
 brew update --force --quiet
 
+curl -sfL https://raw.githubusercontent.com/alajmo/sake/main/install.sh | sh
+
 wget https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping
 chmod +x prettyping
 mv prettyping ~/bin/

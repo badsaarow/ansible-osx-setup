@@ -128,6 +128,11 @@
     - name: "Modern Unix tools"
       shell: brew install curlie httpie procs cheat dog mcfly ripgrep fd broot duf dust delta exa bat zoxide ripgrep 
 
+    - name: "IaC sake"
+      shell: |
+             brew tap alajmo/sake
+             brew install sake
+
     - name: "pretty ping"
       shell: |
              wget https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping
