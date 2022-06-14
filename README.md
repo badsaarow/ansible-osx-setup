@@ -47,6 +47,12 @@ curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bi
 curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_3rd_cli.sh | bash
 ```
 
+## Options
+
+```shell
+curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/install_rustdesk.sh | sudo bash
+```
+
 ## Next
 
 - .ssh clone
