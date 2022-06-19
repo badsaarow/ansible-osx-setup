@@ -142,6 +142,15 @@
     - name: "Android tools"
       shell: brew install jadx
 
+    - name: "nvm"
+      shell: |
+            brew install nvm
+            mkdir ~/.nvm
+# insert below
+# export NVM_DIR="$HOME/.nvm"
+#     [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && \. "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
+#     [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion            
+
     - name: "Install from Mac app store"
       shell: mas install {{ item }}
       with_items:
