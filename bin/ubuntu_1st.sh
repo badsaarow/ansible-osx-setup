@@ -12,6 +12,3 @@ cd ansible-osx-setup || exit
 
 ansible-galaxy install -r requirements.yml
 sudo apt -y upgrade
-curl -fsSL https://tailscale.com/install.sh | sh
-curl -s https://install.zerotier.com | sh
-sudo reboot
