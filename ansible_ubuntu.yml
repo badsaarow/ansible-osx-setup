@@ -1,0 +1,68 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Install homebrew
+      include_role:
+        name: geerlingguy.mac.homebrew
+
+    - name: "add custom homebrew repos"
+      community.general.homebrew_tap:
+        name:
+          [
+            adoptopenjdk/openjdk,
+            fishtown-analytics/dbt,
+            homebrew/cask-versions,
+            thoughtbot/formulae,
+          ]
+
+    - name: "Install homebrew packages"
+      community.general.homebrew:
+        name:
+          [
+            "autoconf",
+            "automake",
+            "bfg",
+            "coreutils",
+            "curl",
+            "wget",
+            "direnv",
+            "dnsmasq",
+            "asdf",
+            "fzf",
+            "gnu-time",
+            "gpg",
+            "htop",
+            "gtop",
+            "fd",
+            "miller",
+            "exa",
+            "asciinema",
+            "chezmoi",
+            "lnav",
+            "magic-wormhole",
+            "ffsend",
+            "up",
+            "libtool",
+            "libxslt",
+            "libyaml",
+            "openssl",
+            "gradle",
+            "rcm",
+            "readline",
+            "tmux",
+            "unixodbc",
+            "unzip",
+            "vim",
+            "watchman",
+            "xz",
+            "yarn",
+            "zlib",
+            "tig",
+            "adr-tools",
+            "telnet",
+          ]
+        state: present
+        update_homebrew: yes
+
+    - name: "Modern Unix tools"
+      shell: brew install curlie httpie procs cheat dog mcfly ripgrep fd broot duf dust delta exa bat
