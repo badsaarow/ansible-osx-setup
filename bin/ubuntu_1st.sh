@@ -9,7 +9,6 @@ sudo apt -y install docker-ce docker-ce-cli containerd.io python-is-python3 pip 
 ## brew
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.profile
-source ~/.profile
 
 
 ## ansible
