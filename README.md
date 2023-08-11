@@ -47,6 +47,8 @@ curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bi
 curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_3rd_cli.sh | bash
 curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_4th_brew.sh | bash
 curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_5th_zorin.sh | bash
+
+curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/install_cockpit.sh | bash
 ```
 
 ## Options
@@ -87,7 +89,7 @@ TASK [Get the path to ZSH] *****************************************************
 fatal: [localhost]: FAILED! => {"changed": false, "module_stderr": "objc[21949]: Class AMSupportURLConnectionDelegate is implemented in both /usr/lib/libamsupport.dylib (0x1dfc7b678) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x108d802c8). One of the two will be used. Which one is undefined.\nobjc[21949]: Class AMSupportURLSession is implemented in both /usr/lib/libamsupport.dylib (0x1dfc7b6c8) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x108d80318). One of the two will be used. Which one is undefined.\n\nYou have not agreed to the Xcode license agreements, please run 'sudo xcodebuild -license' from within a Terminal window to review and agree to the Xcode license agreements.\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 69}
 
 PLAY RECAP *************************************************************************************************************************************************************
-localhost                  : ok=17   changed=3    unreachable=0    failed=1    skipped=10   rescued=0    ignored=1  
+localhost                  : ok=17   changed=3    unreachable=0    failed=1    skipped=10   rescued=0    ignored=1
 
 ```
 

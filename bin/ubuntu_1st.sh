@@ -9,12 +9,3 @@ sudo apt -y install docker-ce docker-ce-cli containerd.io python-is-python3 pip 
 ## brew
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.profile
-
-
-## ansible
-sudo pip install --ignore-installed ansible
-git clone https://github.com/badsaarow/ansible-osx-setup.git
-cd ansible-osx-setup || exit
-
-ansible-galaxy install -r requirements.yml
-ansible-playbook -i "localhost," -c local ansible_ubuntu.yml --ask-become-pass
