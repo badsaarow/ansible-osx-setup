@@ -43,17 +43,16 @@ curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bi
 
 ```shell
 curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_1st.sh | bash
-curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_2nd_user.sh | bash
-curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_3rd_cli.sh | bash
-curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_4th_brew.sh | bash
-curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_5th_zorin.sh | bash
 
-curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/install_cockpit.sh | bash
 ```
 
 ## Options
 
 ```shell
+curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_user.sh | bash
+curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_brew.sh | bash
+curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/ubuntu_zorin.sh | bash
+curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/install_cockpit.sh | bash
 curl -fsSL https://raw.githubusercontent.com/badsaarow/ansible-osx-setup/main/bin/install_rustdesk.sh | sudo bash
 ```
 
